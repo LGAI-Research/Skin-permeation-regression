@@ -1,0 +1,106 @@
+sources:
+  huskin:
+    file_name: huskinDB.xlsx
+    parser: huskin
+    file_type: excel
+    family: huskin
+    preferred_sheet: Sheet1
+    native_target_unit: cm/s
+    header_search_rows: 6
+    header_keywords:
+      - Compound name
+      - Smiles
+      - logkp
+    column_aliases:
+      source_record_id: []
+      compound_name_raw: [Compound name, compound]
+      cas_number_raw: [CAS number, CAS No]
+      smiles_raw: [Smiles, SMILES]
+      target_logkp_raw: [logkp (cm/s), logkp, logKp]
+      notes: [notes, reference, DOI, donor type, acceptor type, cell type]
+    reference: 'Waters, Laura J., and Xin Ling Quah. "Predicting skin permeability using HuskinDB." Scientific Data 9.1 (2022): 584.'
+  skinpix:
+    file_name: SkinPix_20230620_cleanedDB.xlsx
+    parser: skinpix
+    file_type: excel
+    family: skinpix
+    preferred_sheet: default_1
+    native_target_unit: cm/s
+    header_search_rows: 4
+    header_keywords:
+      - data ID
+      - SMILES
+      - logKp (cm/s) (converted)
+    column_aliases:
+      source_record_id: [data ID]
+      compound_name_raw: [compound name, Name]
+      cas_number_raw: [CAS number, CAS No]
+      smiles_raw: [SMILES, Smiles]
+      target_logkp_raw: [logKp (cm/s) (converted), logKp, logkp]
+      notes: [notes, doi, author, used layer, skin preparation]
+    reference: 'Chedik, Lisa, et al. "An update of skin permeability data based on a systematic review of recent research." Scientific Data 11.1 (2024): 224.'
+  zeng:
+    file_name: Zeng et al.xlsx
+    parser: zeng
+    file_type: excel
+    family: zeng
+    preferred_sheet: S1
+    native_target_unit: cm/h
+    header_search_rows: 8
+    header_keywords:
+      - "No."
+      - Name
+      - SMILES
+      - log(Kp)/exp.
+    column_aliases:
+      source_record_id: ["No.", "No"]
+      compound_name_raw: [Name, compound name]
+      cas_number_raw: [CAS No, CAS number]
+      smiles_raw: [SMILES, Smiles]
+      target_logkp_raw: [log(Kp)/exp., logKp]
+      notes: [log(Kp)/SVM, log(Kp)/MLR]
+    reference: "Zeng, R., Deng, J., Dang, L. et al. Correlation between the structure and skin permeability of compounds. Sci Rep 11, 10076 (2021)."
+  cheruvu:
+    file_name: Cheruvu et al.xlsx
+    parser: cheruvu
+    file_type: excel
+    family: cheruvu
+    preferred_sheet: Sheet1
+    native_target_unit: cm/h
+    header_search_rows: 4
+    header_keywords:
+      - "No"
+      - Compound
+      - CAS No
+      - logkpl
+    column_aliases:
+      source_record_id: ["No"]
+      compound_name_raw: [Compound, compound name]
+      cas_number_raw: [CAS No, CAS number]
+      smiles_raw: [SMILES, Smiles]
+      target_logkp_raw: [logkpl, logKp]
+      notes: [Reference, set, Skin thicknessj, Skin Integrity testk]
+    reference: "H. S. Cheruvu et al., An updated database of human maximum skin fluxes and epidermal permeability coefficients for drugs, xenobiotics, and other solutes applied as aqueous solutions, Data in Brief, 42, 108242 (2022)."
+  deeppk:
+    file_name:
+      - deeppk_skin_permeability_train.csv
+      - deeppk_skin_permeability_val.csv
+      - deeppk_skin_permeability_test.csv
+    parser: deeppk
+    file_type: csv
+    family: zeng_deeppk
+    preferred_sheet: null
+    native_target_unit: cm/h
+    header_search_rows: 2
+    header_keywords:
+      - smiles_standarized
+      - label
+      - group
+    column_aliases:
+      source_record_id: []
+      compound_name_raw: [compound name, Name]
+      cas_number_raw: [CAS No, CAS number]
+      smiles_raw: [smiles_standarized, SMILES, Smiles]
+      target_logkp_raw: [label, logKp]
+      notes: [group]
+    reference: "Myung, Y., et al. Deep-PK: deep learning for small molecule pharmacokinetic and toxicity prediction, 52, 469-475 (2024)."

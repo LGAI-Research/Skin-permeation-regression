@@ -1,0 +1,16 @@
+identity_key: smiles_std
+round_target_decimals: 3
+canonical_target_unit: cm/s
+conflict_threshold_method: tukey_iqr_1.5
+conflict_metric: pooled_range
+threshold_population: overlap_compounds
+threshold_min_overlap_compounds: 10
+threshold_sensitivity_methods:
+  - tukey_iqr_1.5
+  - tukey_iqr_3.0
+drop_severe_conflicts: false
+exclude_invalid_structures: true
+exclude_mixtures_and_salts: true
+exclude_metal_containing_structures: true
+keep_raw_records: true
+pubchem_query_enabled: false

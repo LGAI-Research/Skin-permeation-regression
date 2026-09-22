@@ -1,0 +1,29 @@
+# Direct dependencies of the reproduction pipeline, pinned to the versions used to
+# produce the reported results (verified 2026-06-01). This is a curated list, not a
+# full `pip freeze`; transitive dependencies are resolved by pip.
+# Note: the feature tables under outputs/features/ ship frozen and are loaded, not rebuilt,
+# so neither scikit-fingerprints (FP-ADMET) nor a Java/CDK toolchain (Abdallah) is listed here.
+
+# Data processing
+pandas==2.2.3
+numpy==1.24.2
+
+# Chemistry / structure processing
+rdkit==2024.9.6
+PubChemPy==1.0.5
+
+# Machine learning
+scikit-learn==1.7.2
+lightgbm==4.6.0
+
+# Numerical computation
+scipy==1.15.2
+joblib==1.4.2
+
+# File I/O
+openpyxl==3.1.5
+PyYAML==6.0.1
+
+# Visualization
+matplotlib==3.10.3
+seaborn==0.13.2
