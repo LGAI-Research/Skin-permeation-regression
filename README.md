@@ -142,11 +142,26 @@ You do not have to run anything to see the results. The manuscript's figures are
 | S1 Fig | Distribution of pooled conflict ranges | [`figures/s1_fig.png`](figures/s1_fig.png) |
 | S2 Fig | PCA projections of each model's feature space | [`figures/s2_fig.png`](figures/s2_fig.png) |
 
+**Fig 3a, RMSE by training fraction.** The scaffold holdout leaves 53 compounds out, and each
+model is refit on the given fraction of the remaining training set. Values come from
+[`results/figure3/sample_efficiency_metrics.csv`](results/figure3/sample_efficiency_metrics.csv),
+which also carries MAE, R² and the two rank correlations. Lower is better.
+
+| Model | 0.1 | 0.2 | 0.4 | 0.6 | 0.8 | 1.0 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Zeng SVR | 0.912 | 0.808 | 1.374 | 0.987 | 0.932 | 0.971 |
+| Abdallah LGBM | 1.056 | 0.937 | 1.179 | 0.786 | 0.806 | 0.776 |
+| Waters Linear | 1.240 | 1.238 | 1.258 | 1.156 | 1.100 | 1.091 |
+| FP-ADMET RF | 1.048 | 1.026 | 1.231 | 0.993 | 0.980 | 0.860 |
+| **GATE-LGBM** | 0.996 | 0.870 | 0.951 | 0.744 | 0.758 | 0.749 |
+| *train compounds* | *47* | *94* | *188* | *281* | *375* | *468* |
+
 ```text
 results/
 ├── table1/    benchmark_build_report.md, benchmark_conflict_filtered.csv, merged_all_records.csv
 ├── table3/    summary_by_model_and_split.csv, summary_by_model.csv, fold_metrics.csv,
 │              leakage_checks.csv
+├── figure3/   sample_efficiency_metrics.csv
 ├── figure4/   figure4_panel.png, table_s3_metrics.csv
 └── figures/   the Fig 2 and S1 Fig panels as the pipeline emits them
 ```
@@ -155,7 +170,8 @@ Of the six figures, Fig 2, Fig 4 and S1 Fig are produced by the four stages belo
 schematic. The scripts behind Fig 3 (scaffold holdout, training fractions, gain-based feature
 importance) and S2 Fig (feature-space PCA), and the descriptor-generation workflows of Supplementary
 Note 1, are not part of this package; they are available from the corresponding author on request, as
-stated in the manuscript's Code availability section.
+stated in the manuscript's Code availability section. The metrics behind Fig 3a are committed under
+`results/figure3/` even though the script that produced them is not.
 
 `table3/leakage_checks.csv` is the evidence behind the manuscript's claim that no compound appears in
 both the training and test partition of any fold. It has one row per split method and fold (20 in
