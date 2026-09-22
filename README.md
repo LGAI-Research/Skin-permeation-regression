@@ -116,6 +116,18 @@ produced are shipped as a frozen table (see [§3.3](#33-what-is-frozen-and-what-
 of Fig 4. Their measured permeability values come from ex vivo porcine skin experiments and are
 shipped in `outputs/features/hnh/trio_labels.csv`.
 
+**Cross-validated performance.** Mean ± standard deviation across the 10 folds of both split
+schemes, read from [`results/table3/summary_by_model.csv`](results/table3/summary_by_model.csv).
+Lower is better for RMSE and MAE, higher for the other three.
+
+| Model | RMSE | MAE | R² | Pearson r | Spearman ρ |
+| --- | --- | --- | --- | --- | --- |
+| Zeng SVR | 0.863 ± 0.155 | 0.575 ± 0.099 | 0.417 ± 0.197 | 0.681 ± 0.116 | 0.716 ± 0.091 |
+| Abdallah LGBM | 0.762 ± 0.102 | 0.524 ± 0.068 | 0.551 ± 0.097 | 0.753 ± 0.063 | 0.757 ± 0.060 |
+| Waters Linear | 0.960 ± 0.099 | 0.757 ± 0.073 | 0.287 ± 0.128 | 0.547 ± 0.111 | 0.580 ± 0.090 |
+| FP-ADMET RF | 0.761 ± 0.068 | 0.560 ± 0.056 | 0.553 ± 0.067 | 0.749 ± 0.046 | 0.738 ± 0.058 |
+| **GATE-LGBM** | 0.725 ± 0.109 | 0.524 ± 0.080 | 0.591 ± 0.113 | 0.775 ± 0.077 | 0.783 ± 0.068 |
+
 ### 2.2 Reference outputs
 
 You do not have to run anything to see the results. The manuscript's figures are committed under
